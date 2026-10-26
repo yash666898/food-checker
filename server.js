@@ -8,7 +8,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const port = process.env.PORT || 3000;
 
 app.use(express.json({ limit: '12mb' }));
-app.use(express.static(root));
+app.use(express.static(path.join(root, 'public')));
 
 app.get('/api/dish-image', async (req, res) => {
   const query = String(req.query.q || '').trim();
